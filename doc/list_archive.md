@@ -6,7 +6,36 @@
 
 ## Prerequisites
 
+In order to list the contents of a zip archive, a archive is needed.
+
+A sample archive named `test.zip` can be created using `create_test_archive`:
+
+```bash
+cmake -B build
+cmake --build build
+./build/create_test_archive
+```
+
+Alternativly, a test archive can also be created using the `zip` command line tool:
+
+```bash
+zip -r test.zip CMakeLists.txt src
+```
+
 ## List archive using unzip command line tool
+
+```bash
+unzip -l test.zip
+
+Archive:  test.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+       27  2023-11-26 15:24   README.md
+        0  2023-11-26 15:24   subdir/
+       13  2023-11-26 15:24   subdir/some_file.txt
+---------                     -------
+       40                     3 file
+```
 
 ## List archive using libarchive C API
 
