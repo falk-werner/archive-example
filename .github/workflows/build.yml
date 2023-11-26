@@ -1,0 +1,39 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: sudo apt install openssl libssl-dev valgrind
+
+      - name: Configure
+        run: |
+          cmake -B build -DCMAKE_BUILD_TYPE=Debug
+
+      - name: Build
+        run: |
+          cmake --build build
+
+      - name: create test archive
+        run: |
+          valgrind --error-exitcode=42 --leak-check=full ./build/creat_test_archive
+      
+      - name: Test list_archive (libarchive)
+        run: |
+          valgrind --error-exitcode=42 --leak-check=full ./build/libarchive_list_archive test.zip
+
+      - name: Test list_archive (libzip)
+        run: |
+          valgrind --error-exitcode=42 --leak-check=full ./build/libzip_list_archive test.zip
