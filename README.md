@@ -9,7 +9,7 @@ at it's [github project page](https://github.com/libarchive/libarchive/wiki/Exam
 
 | Example | libarchive | libzip |
 | ------- | ---------- | ------ |
-| [list contents of an archive](doc/list_archive.md) | [x] | [x] |
+| [list contents of an archive](doc/list_archive.md) | :heavy_check_mark: | :heavy_check_mark: |
 | create archive | [ ] | [ ] |
 | extract a single file | [ ] | [ ] |
 | add a single file to an existing archive | [ ] | [ ] |
