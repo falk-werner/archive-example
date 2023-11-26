@@ -1,9 +1,7 @@
 # archive example
 
-This repository contains examples how to use libarchive.
-
-**Note**: libarchive already provides a great tutorial
-at it's [github project page](https://github.com/libarchive/libarchive/wiki/Examples).
+This repository contains examples how to use libarchive and libzip to
+read, write and manipulate zip archives.
 
 ## Examples
 
@@ -13,6 +11,14 @@ at it's [github project page](https://github.com/libarchive/libarchive/wiki/Exam
 | create archive | :soon: | :soon: |
 | extract a single file | :soon: | :soon: |
 | add a single file to an existing archive | :x: | :soon: |
+
+## Build examples
+
+```bash
+cmake -B build
+cmake --build build
+./build/create_test_archive
+```
 
 ## References 
 
