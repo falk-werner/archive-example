@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Unlicense
+
 #include <iostream>
 #include <zip.h>
 
@@ -19,6 +21,9 @@ void add_textfile(zip_t * archive, std::string const & filename, std::string con
 
 int main(int argc, char * argv[])
 {
+    (void) argc;
+    (void) argv;
+    
     zip_t * archive = zip_open("test.zip", ZIP_CREATE | ZIP_TRUNCATE, nullptr);
     if (nullptr == archive)
     {
@@ -32,7 +37,7 @@ This is an exmaple)";
     add_textfile(archive, "README.md", readme);
 
     zip_add_dir(archive, "subdir");
-    add_textfile(archive, "subdir\\some_file.txt", "some contents");
+    add_textfile(archive, "subdir/some_file.txt", "some contents");
 
     zip_close(archive);
     return EXIT_SUCCESS;

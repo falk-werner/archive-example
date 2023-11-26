@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Unlicense
+
 #include <zip.h>
 
 #include <iostream>

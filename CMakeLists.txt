@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.20)
 project(libarchive-example)
 
 set(CMAKE_CXX_STANDARD 17)
+add_compile_options(-Wall -Wextra -Wpedantic)
 
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(LIBARCHIVE REQUIRED libarchive>3.0)
