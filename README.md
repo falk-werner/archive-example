@@ -7,11 +7,14 @@ at it's [github project page](https://github.com/libarchive/libarchive/wiki/Exam
 
 ## Examples
 
-- list contents of an archive
-- create archive
-- extract a single file
-- add a single file to an existing archive
+| Example | libarchive | libzip |
+| ------- | ---------- | ------ |
+| [list contents of an archive](doc/list_archive.md) | [x] | [x] |
+| create archive | [ ] | [ ] |
+| extract a single file | [ ] | [ ] |
+| add a single file to an existing archive | [ ] | [ ] |
 
 ## References 
 
 - [libarchive](https://www.libarchive.org/)
+- [libzip](https://libzip.org/)
