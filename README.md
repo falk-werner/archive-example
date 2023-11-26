@@ -1,3 +1,5 @@
+[![Build](https://github.com/falk-werner/archive-example/actions/workflows/build.yml/badge.svg)](https://github.com/falk-werner/archive-example/actions/workflows/build.yml)
+
 # archive example
 
 This repository contains examples how to use libarchive and libzip to
