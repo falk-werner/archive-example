@@ -28,7 +28,7 @@ jobs:
 
       - name: create test archive
         run: |
-          valgrind --error-exitcode=42 --leak-check=full ./build/creat_test_archive
+          valgrind --error-exitcode=42 --leak-check=full ./build/create_test_archive
       
       - name: Test list_archive (libarchive)
         run: |
