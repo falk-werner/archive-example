@@ -10,8 +10,8 @@ read, write and manipulate zip archives.
 | Example | libarchive | libzip |
 | ------- | ---------- | ------ |
 | [list contents of an archive](doc/list_archive.md) | :white_check_mark: | :white_check_mark: |
-| create archive | :soon: | :soon: |
-| extract a single file | :soon: | :soon: |
+| [create archive](doc/create_archive.md) | :white_check_mark: | :white_check_mark: |
+| [extract a single file](doc/extract_single_file.md) | :white_check_mark: | :white_check_mark: |
 | add a single file to an existing archive | :x: | :soon: |
 
 ## Build examples
