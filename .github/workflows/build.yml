@@ -53,3 +53,7 @@ jobs:
       - name: Test extract_file (libzip)
         run: |
           valgrind --error-exitcode=42 --leak-check=full ./build/libzip_extract_file test.zip README.md
+
+      - name: Test add_files (libzip)
+        run: |
+          valgrind --error-exitcode=42 --leak-check=full ./build/libzip_add_files test.zip CMakeLists.txt

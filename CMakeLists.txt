@@ -51,3 +51,11 @@ add_executable(libzip_extract_file src/libzip/extract_file.cpp)
 target_compile_options(libzip_extract_file PRIVATE ${LIBZIP_CFLAGS}  ${LIBZIP_CFLAGS_OTHER})
 target_include_directories(libzip_extract_file PRIVATE ${LIBZIP_INCLUDE_DIRS})
 target_link_libraries(libzip_extract_file PRIVATE ${LIBZIP_LINK_LIBRARIES})
+
+
+# add files
+
+add_executable(libzip_add_files src/libzip/add_files.cpp)
+target_compile_options(libzip_add_files PRIVATE ${LIBZIP_CFLAGS}  ${LIBZIP_CFLAGS_OTHER})
+target_include_directories(libzip_add_files PRIVATE ${LIBZIP_INCLUDE_DIRS})
+target_link_libraries(libzip_add_files PRIVATE ${LIBZIP_LINK_LIBRARIES})
