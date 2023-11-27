@@ -37,3 +37,11 @@ jobs:
       - name: Test list_archive (libzip)
         run: |
           valgrind --error-exitcode=42 --leak-check=full ./build/libzip_list_archive test.zip
+
+      - name: Test create_archive (libarchive)
+        run: |
+          valgrind --error-exitcode=42 --leak-check=full ./build/libarchive_create_archive test.zip README.md
+
+      - name: Test create_archive (libzip)
+        run: |
+          valgrind --error-exitcode=42 --leak-check=full ./build/libzip_create_archive test.zip README.md
