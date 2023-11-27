@@ -6,7 +6,7 @@
 
 ## Prerequisites
 
-In order to list the contents of a zip archive, a archive is needed.
+In order to list the contents of a zip archive, an archive is needed.
 
 A sample archive named `test.zip` can be created using `create_test_archive`:
 

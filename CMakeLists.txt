@@ -38,3 +38,16 @@ add_executable(libzip_create_archive src/libzip/create_archive.cpp)
 target_compile_options(libzip_create_archive PRIVATE ${LIBZIP_CFLAGS}  ${LIBZIP_CFLAGS_OTHER})
 target_include_directories(libzip_create_archive PRIVATE ${LIBZIP_INCLUDE_DIRS})
 target_link_libraries(libzip_create_archive PRIVATE ${LIBZIP_LINK_LIBRARIES})
+
+
+# extract file
+
+add_executable(libarchive_extract_file src/libarchive/extract_file.cpp)
+target_compile_options(libarchive_extract_file PRIVATE ${LIBARCHIVE_CFLAGS}  ${LIBARCHIVE_CFLAGS_OTHER})
+target_include_directories(libarchive_extract_file PRIVATE ${LIBARCHIVE_INCLUDE_DIRS})
+target_link_libraries(libarchive_extract_file PRIVATE ${LIBARCHIVE_LINK_LIBRARIES})
+
+add_executable(libzip_extract_file src/libzip/extract_file.cpp)
+target_compile_options(libzip_extract_file PRIVATE ${LIBZIP_CFLAGS}  ${LIBZIP_CFLAGS_OTHER})
+target_include_directories(libzip_extract_file PRIVATE ${LIBZIP_INCLUDE_DIRS})
+target_link_libraries(libzip_extract_file PRIVATE ${LIBZIP_LINK_LIBRARIES})
