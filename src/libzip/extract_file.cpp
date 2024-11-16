@@ -5,9 +5,24 @@
 #include <cstdio>
 #include <iostream>
 #include <string>
+#include <memory>
 
 namespace
 {
+
+void close_archive(zip_t * archive)
+{
+    zip_close(archive);
+}
+
+void close_zip_file(zip_file_t * file)
+{
+    zip_fclose(file);
+}
+
+using zip_ptr = std::unique_ptr<zip_t, void(*)(zip_t*)>;
+using zip_file_ptr = std::unique_ptr<zip_file_t, void(*)(zip_file_t*)>;
+
 
 int extract_file(
     std::string const & archive_filename,
@@ -15,41 +30,29 @@ int extract_file(
 {
     int exit_code = EXIT_SUCCESS;
 
-    zip_t * archive = zip_open(archive_filename.c_str(), ZIP_RDONLY, nullptr);
-    if (nullptr == archive)
+    zip_t * raw_archive = zip_open(archive_filename.c_str(), ZIP_RDONLY, nullptr);
+    if (nullptr == raw_archive)
     {
         std::cerr << "failed to open archive" << std::endl;
         return EXIT_FAILURE;
     }
+    zip_ptr archive(raw_archive, close_archive);
 
-    auto const id = zip_name_locate(archive, filename.c_str(), 0);
-    if (0 <= id)
+    auto * const raw_source = zip_fopen(archive.get(), filename.c_str(), 0);
+    if (nullptr == raw_source)
     {
-        auto * const source = zip_fopen_index(archive, id, 0);
-        if (nullptr == source)
-        {
-            std::cerr << "error: failed to open archived file" << std::endl;
-            zip_close(archive);
-            return EXIT_FAILURE;
-        }
-
-        char buffer[10240];
-        auto length = zip_fread(source, buffer, 10240);
-        while (0 < length)
-        {
-            fwrite(buffer, 1, length, stdout);
-            length = zip_fread(source, buffer, 10240);
-        }
-
-        zip_fclose(source);
+        std::cerr << "error: failed to open archived file" << std::endl;
+        return EXIT_FAILURE;
     }
-    else
+    zip_file_ptr source(raw_source, close_zip_file);
+
+    char buffer[10240];
+    auto length = zip_fread(source.get(), buffer, 10240);
+    while (0 < length)
     {
-        std::cerr << "error: file not found in archive" << std::endl;
-        exit_code = EXIT_FAILURE;
+        fwrite(buffer, 1, length, stdout);
+        length = zip_fread(source.get(), buffer, 10240);
     }
-
-    zip_close(archive);
 
     return exit_code;
 }
