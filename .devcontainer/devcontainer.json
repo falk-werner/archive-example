@@ -3,7 +3,7 @@
         "dockerfile": "Dockerfile",
         "context": ".."
     },
-    "remoteUser": "user",
+    "remoteUser": "ubuntu",
     "mounts": [{
         "source": "${localEnv:HOME}/.ssh",
         "target": "/home/user/.ssh",
