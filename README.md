@@ -13,6 +13,8 @@ read, write and manipulate zip archives.
 | [create archive](doc/create_archive.md) | :white_check_mark: | :white_check_mark: |
 | [extract a single file](doc/extract_single_file.md) | :white_check_mark: | :white_check_mark: |
 | [add files to an existing archive](doc/add_files.md) | :x: | :white_check_mark: |
+| create encrypted archive | ? | :white_check_mark: |
+| extract encrypted archive | ? | :white_check_mark: |
 
 ## Build examples
 

@@ -43,3 +43,14 @@ target_link_libraries(libzip_extract_file PRIVATE PkgConfig::LIBZIP)
 
 add_executable(libzip_add_files src/libzip/add_files.cpp)
 target_link_libraries(libzip_add_files PRIVATE PkgConfig::LIBZIP)
+
+# create encrypted archive
+
+add_executable(libzip_create_encrypted_archive src/libzip/create_encrypted_archive.cpp)
+target_link_libraries(libzip_create_encrypted_archive PRIVATE PkgConfig::LIBZIP)
+
+
+# extract encrypted file
+
+add_executable(libzip_extract_encrypted_file src/libzip/extract_encrypted_file.cpp)
+target_link_libraries(libzip_extract_encrypted_file PRIVATE PkgConfig::LIBZIP)
